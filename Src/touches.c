@@ -109,6 +109,12 @@ void gerer_clavier(unsigned char touche, int x, int y) {
             (paramAngle[0]-1 >= 0) ? paramAngle[0]-- : paramAngle[0];
             glLightf(GL_LIGHT1,GL_SPOT_CUTOFF, paramAngle[0]);
             break;
+        case '*':
+            subdivision*=2;
+            break;
+        case '/':
+            subdivision/=2;
+            break;
         case 'q' :
             exit(0);
             break;

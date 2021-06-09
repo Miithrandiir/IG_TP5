@@ -27,10 +27,11 @@ static void init_screen(void) {
 static void init_eclairage() {
     glEnable(GL_LIGHTING);
     //glEnable(GL_LIGHT0);
-    glEnable(GL_LIGHT1);
+    //glEnable(GL_LIGHT1);
+    glEnable(GL_LIGHT2);
 
-    GLfloat coeff[] = {0.2, 0.2, 0.2, 1.0};
-    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, coeff);
+    //GLfloat coeff[] = {0.2, 0.2, 0.2, 1.0};
+    //glLightModelfv(GL_LIGHT_MODEL_AMBIENT, coeff);
 
     GLfloat coeffLight0[] = {0.1,0.1,0.1,1.0};
     glLightfv(GL_LIGHT0,GL_AMBIENT, coeffLight0);
@@ -38,15 +39,19 @@ static void init_eclairage() {
     /* éclairage LIGHT0 géré dans la fonction dessiner*/
 
     //éclairage Light 1
-    GLfloat angle[1] = {30};
-    glLightfv(GL_LIGHT1, GL_SPOT_CUTOFF, angle); //30°
     GLfloat coeffAmb[] = {0.1,0.1,0.1,1.0};
-    glLightfv(GL_LIGHT1, GL_AMBIENT, coeffAmb);
     GLfloat coeffIDS[] = {1.0,1.0,1.0,1.0};
     glLightfv(GL_LIGHT1, GL_SPECULAR, coeffIDS);
     glLightfv(GL_LIGHT1, GL_DIFFUSE, coeffIDS);
-    GLfloat posLight1[4] = {-1.0,-1.0,-1.0,1.0};
-    glLightfv(GL_LIGHT1, GL_POSITION, posLight1);
+    glLightfv(GL_LIGHT1, GL_AMBIENT, coeffAmb);
+    glLightf(GL_LIGHT2, GL_SPOT_CUTOFF, 6.0f);
+
+    GLfloat light2_position[] = {0.0, 2.0, 0.0, 1.0};
+    GLfloat light2_direction[] = {0, -1.0, 0};
+    glLightfv(GL_LIGHT2, GL_POSITION, light2_position);
+    glLightfv(GL_LIGHT2, GL_SPOT_DIRECTION, light2_direction);
+
+
 
 }
 
